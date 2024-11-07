@@ -26,3 +26,7 @@ The following specifications have been met in this project:
   ```sh
   HLInt.exe <source_file>
   ```
+## Group Members
+* Dolor, Cedric Elijah A.
+* Edillor, Luke Malachi O.
+* San Diego, Gian Audrick V.
