@@ -1,4 +1,4 @@
-#include "HLint.h"
+#include "HLInt.h"
 
 Variable variables[MAX_VARIABLES];
 int varCount;
