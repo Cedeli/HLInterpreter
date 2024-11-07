@@ -110,6 +110,81 @@ int main(int argc, char* argv[]) {
     if (result3 != SUCCESS) {
 	printf("Error: %s\n", error3.message);
     } 
+	
+    /////////
+    // Test invalid variable declaration
+    char test4[50] = "x:=integer;";
+    printf("\nTesting: %s\n", test4);
+    ErrorInfo error4 = {0};
+    int result4 = checkSyntax(&test4, 1, &error4);  
+    if (result4 != SUCCESS) {
+        printf("Error: %s\n", error4.message);
+    }
+
+    // Test invalid assignment
+    char test5[50] = "x:=;";
+    printf("\nTesting: %s\n", test5);
+    ErrorInfo error5 = {0};
+    int result5 = checkSyntax(&test5, 1, &error5);  
+    if (result5 != SUCCESS) {
+        printf("Error: %s\n", error5.message);
+    }
+
+    // Test invalid value
+    char test6[50] = "x:= \"string\";";
+    printf("\nTesting: %s\n", test6);
+    ErrorInfo error6 = {0};
+    int result6 = checkSyntax(&test6, 1, &error6);  
+    if (result6 != SUCCESS) {
+        printf("Error: %s\n", error6.message);
+    }
+
+    // Test invalid if structure
+    char test7[50] = "if x < 5) output<<x;";
+    printf("\nTesting: %s\n", test7);
+    ErrorInfo error7 = {0};
+    int result7 = checkSyntax(&test7, 1, &error7);  
+    if (result7 != SUCCESS) {
+        printf("Error: %s\n", error7.message);
+    }
+
+    // Test invalid condition
+    char test8[50] = "if(x 5) output<<x;";
+    printf("\nTesting: %s\n", test8);
+    ErrorInfo error8 = {0};
+    int result8 = checkSyntax(&test8, 1, &error8);  
+    if (result8 != SUCCESS) {
+        printf("Error: %s\n", error8.message);
+    }
+
+    // Test missing if statement
+    char test9[50] = "if(x < 5)";
+    printf("\nTesting: %s\n", test9);
+    ErrorInfo error9 = {0};
+    int result9 = checkSyntax(&test9, 1, &error9);  
+    if (result9 != SUCCESS) {
+        printf("Error: %s\n", error9.message);
+    }
+
+    // Test unclosed string
+    char test10[50] = "output<<\"Hello;";
+    printf("\nTesting: %s\n", test10);
+    ErrorInfo error10 = {0};
+    int result10 = checkSyntax(&test10, 1, &error10);  
+    if (result10 != SUCCESS) {
+        printf("Error: %s\n", error10.message);
+    }
+
+    // Test null input
+    char test11[50] = "";
+    printf("\nTesting: %s\n", test11);
+    ErrorInfo error11 = {0};
+    int result11 = checkSyntax(&test11, 1, &error11);  
+    if (result11 != SUCCESS) {
+        printf("Error: %s\n", error11.message);
+    }
+    /////////
+
 
     return 0;
 }
